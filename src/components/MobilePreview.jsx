@@ -9,15 +9,15 @@ function InitialScreen({ config, styling }) {
     <div className="preview-content">
       <div
         style={{
-          width: 52,
-          height: 52,
-          borderRadius: "14px",
-          background: styling.buttonColor + "15",
+          width: "48px",
+          height: "48px",
+          borderRadius: "12px",
+          background: styling.buttonColor + "12",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 22,
-          marginBottom: 4,
+          fontSize: 20,
+          marginBottom: 2,
         }}
       >
         ⭐
@@ -35,7 +35,7 @@ function InitialScreen({ config, styling }) {
       </h2>
       <p
         style={{
-          fontSize: "13px",
+          fontSize: "12px",
           color: styling.subtitleColor,
           margin: 0,
           lineHeight: 1.5,
@@ -55,11 +55,11 @@ function FeedbackScreen({ config, styling }) {
   return (
     <div
       className="preview-content"
-      style={{ justifyContent: "flex-start", padding: "32px 22px 22px", gap: "16px" }}
+      style={{ justifyContent: "flex-start", padding: "28px 20px 20px", gap: "14px" }}
     >
       <h3
         style={{
-          fontSize: "15px",
+          fontSize: "14px",
           fontWeight: 600,
           color: styling.titleColor,
           margin: 0,
@@ -70,18 +70,18 @@ function FeedbackScreen({ config, styling }) {
         Tell us more
       </h3>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "7px", width: "100%" }}>
         {config.feedbackPage.options.map((opt, i) => (
           <label
             key={i}
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "10px",
-              padding: "10px 14px",
+              gap: "9px",
+              padding: "9px 12px",
               border: `1px solid ${styling.unselectedRatingColor}`,
               borderRadius: styling.borderRadius,
-              fontSize: "13px",
+              fontSize: "12px",
               color: styling.titleColor,
               cursor: "pointer",
               background: "#ffffff",
@@ -90,7 +90,7 @@ function FeedbackScreen({ config, styling }) {
             <input
               type="radio"
               name="feedback-option"
-              style={{ accentColor: styling.buttonColor, width: 15, height: 15 }}
+              style={{ accentColor: styling.buttonColor, width: 14, height: 14 }}
             />
             {opt}
           </label>
@@ -98,10 +98,10 @@ function FeedbackScreen({ config, styling }) {
       </div>
 
       {config.feedbackPage.additionalCommentToggle && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "5px", width: "100%" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "100%" }}>
           <label
             style={{
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: 500,
               color: styling.subtitleColor,
               textAlign: "left",
@@ -115,9 +115,9 @@ function FeedbackScreen({ config, styling }) {
             placeholder="Type here..."
             style={{
               width: "100%",
-              minHeight: "72px",
-              padding: "10px 12px",
-              fontSize: "13px",
+              minHeight: "64px",
+              padding: "9px 11px",
+              fontSize: "12px",
               fontFamily: "inherit",
               color: styling.titleColor,
               border: `1px solid ${styling.unselectedRatingColor}`,
@@ -164,18 +164,18 @@ function ThankYouScreen({ config, styling }) {
     <div className="preview-content">
       <div
         style={{
-          width: 56,
-          height: 56,
+          width: "52px",
+          height: "52px",
           borderRadius: "50%",
           background: "#ecfdf5",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           color: "#16a34a",
-          marginBottom: 4,
+          marginBottom: 2,
         }}
       >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="20 6 9 17 4 12" />
         </svg>
       </div>
@@ -192,7 +192,7 @@ function ThankYouScreen({ config, styling }) {
       </h2>
       <p
         style={{
-          fontSize: "13px",
+          fontSize: "12px",
           color: styling.subtitleColor,
           margin: 0,
           lineHeight: 1.5,
@@ -205,7 +205,7 @@ function ThankYouScreen({ config, styling }) {
       {mediaUrl && (
         <div
           style={{
-            marginTop: "8px",
+            marginTop: "6px",
             width: "100%",
             display: "flex",
             justifyContent: "center",
@@ -216,7 +216,7 @@ function ThankYouScreen({ config, styling }) {
             alt="Uploaded media"
             style={{
               maxWidth: "100%",
-              maxHeight: "110px",
+              maxHeight: "100px",
               borderRadius: styling.borderRadius,
               objectFit: "contain",
               border: "1px solid #e5e7eb",
@@ -233,7 +233,7 @@ function ThankYouScreen({ config, styling }) {
           background: styling.buttonColor,
           color: styling.buttonTextColor,
           borderRadius: styling.borderRadius,
-          marginTop: "8px",
+          marginTop: "6px",
         }}
       >
         {config.thankYouPage.buttonText}
@@ -250,7 +250,7 @@ export default function MobilePreview({ config }) {
   const Screen = screens[current];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
       <span className="screen-label">{screenNames[current]}</span>
       <div className="phone" style={{ background: styling.backgroundColor }}>
         <div className="phone-screen">

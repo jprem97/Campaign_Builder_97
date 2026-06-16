@@ -3,7 +3,7 @@
 .styling-tab {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
 }
 
 .styling-tab .section h3 {
