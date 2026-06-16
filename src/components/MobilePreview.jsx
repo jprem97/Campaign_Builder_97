@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Rating from "./Rating";
 import "../styles/MobilePreview.css";
 
@@ -90,6 +90,19 @@ function FeedbackScreen({ config, styling }) {
 }
 
 function ThankYouScreen({ config, styling }) {
+  const mediaUrl = useMemo(() => {
+    if (config.thankYouPage.media) {
+      return URL.createObjectURL(config.thankYouPage.media);
+    }
+    return null;
+  }, [config.thankYouPage.media]);
+
+  useEffect(() => {
+    return () => {
+      if (mediaUrl) URL.revokeObjectURL(mediaUrl);
+    };
+  }, [mediaUrl]);
+
   return (
     <div className="preview-content">
       <div style={{ fontSize: "40px" }}>✅</div>
@@ -100,10 +113,10 @@ function ThankYouScreen({ config, styling }) {
         {config.thankYouPage.subtitle}
       </p>
 
-      {config.thankYouPage.media && (
+      {mediaUrl && (
         <div style={{ marginTop: "8px", width: "100%", display: "flex", justifyContent: "center" }}>
           <img
-            src={URL.createObjectURL(config.thankYouPage.media)}
+            src={mediaUrl}
             alt="Uploaded media"
             style={{ maxWidth: "100%", maxHeight: "120px", borderRadius: styling.borderRadius, objectFit: "contain" }}
           />

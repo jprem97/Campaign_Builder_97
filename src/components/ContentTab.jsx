@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../styles/ContentTab.css";
 
 function ContentTab({ config, setConfig }) {
@@ -103,7 +103,7 @@ function ContentTab({ config, setConfig }) {
           <label>Media Upload</label>
           <input
             type="file"
-            accept="image/*"
+            accept=".png,.jpg,.jpeg,.gif,.json"
             onChange={(e) =>
               handleChange("thankYouPage", "media", e.target.files[0])
             }

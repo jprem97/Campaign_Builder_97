@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../styles/StylingTab.css";
 
 const colorFields = [

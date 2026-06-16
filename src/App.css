@@ -29,6 +29,15 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+}
+
 .left-panel {
   flex: 1;
   display: flex;
@@ -48,6 +57,19 @@ body {
   padding: 24px;
   overflow-y: auto;
   background-color: #f8f9fb;
+}
+
+@media (max-width: 768px) {
+  .right-panel {
+    width: 100%;
+    min-width: unset;
+    border-right: none;
+    border-top: 1px solid #e2e5ea;
+  }
+
+  .left-panel {
+    border-right: none;
+  }
 }
 
 /* ── Tabs ───────────────────────────────────────── */
