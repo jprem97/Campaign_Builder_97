@@ -1,0 +1,143 @@
+/* ── Styling Tab ─────────────────────────────────── */
+
+.styling-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ── Section Containers ──────────────────────────── */
+
+.styling-tab .section {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.styling-tab .section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6366f1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* ── Form Groups ─────────────────────────────────── */
+
+.styling-tab .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.styling-tab .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.styling-tab .form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  letter-spacing: 0.01em;
+}
+
+.styling-tab .form-group input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1f2937;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.styling-tab .form-group input[type="text"]:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+  background-color: #ffffff;
+}
+
+.styling-tab .form-group input::placeholder {
+  color: #9ca3af;
+}
+
+/* ── Color Picker ────────────────────────────────── */
+
+.styling-tab .form-group input[type="color"] {
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  transition: border-color 0.2s ease;
+}
+
+.styling-tab .form-group input[type="color"]:hover {
+  border-color: #6366f1;
+}
+
+.styling-tab .form-group input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.styling-tab .form-group input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+/* ── Color Input Row ─────────────────────────────── */
+
+.styling-tab .color-inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.styling-tab .color-inputs input[type="text"] {
+  width: 110px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  color: #374151;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.styling-tab .color-inputs input[type="text"]:focus {
+  border-color: #6366f1;
+}
+
+/* ── Toggle Row ──────────────────────────────────── */
+
+.styling-tab .form-group.toggle {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background-color: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.styling-tab .form-group.toggle:hover {
+  background-color: #f5f3ff;
+}
+
+.styling-tab .form-group.toggle label {
+  margin-bottom: 0;
+  font-size: 14px;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ContentTab.css";
+import "../styles/StylingTab.css";
 
 const colorFields = [
   { label: "Background Color", key: "backgroundColor" },
@@ -31,7 +31,7 @@ function StylingTab({ config, setConfig }) {
   };
 
   return (
-    <div className="content-tab">
+    <div className="styling-tab">
       <section className="section">
         <h3>Colors</h3>
         {colorFields.map(({ label, key }) => (
