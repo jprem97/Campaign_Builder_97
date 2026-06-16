@@ -11,7 +11,7 @@ export default function Rating({ styling, onChange }) {
   };
 
   return (
-    <div style={{ display: "flex", gap: "12px", justifyContent: "center" }}>
+    <div className="rating-row">
       {emojis.map((emoji, i) => {
         const isActive = selected === i;
         return (

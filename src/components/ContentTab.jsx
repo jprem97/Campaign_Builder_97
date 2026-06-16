@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/ContentTab.css";
 
 function ContentTab({ config, setConfig }) {
   const handleChange = (section, field, value) => {
@@ -32,31 +33,31 @@ function ContentTab({ config, setConfig }) {
   return (
     <div className="content-tab">
       {/* Initial Feedback */}
-      <section>
+      <section className="section">
         <h3>Initial Feedback</h3>
-        <label>
-          Title
+        <div className="form-group">
+          <label>Title</label>
           <input
             type="text"
             value={config.initialFeedback.title}
             onChange={(e) => handleChange("initialFeedback", "title", e.target.value)}
           />
-        </label>
-        <label>
-          Subtitle
+        </div>
+        <div className="form-group">
+          <label>Subtitle</label>
           <input
             type="text"
             value={config.initialFeedback.subtitle}
             onChange={(e) => handleChange("initialFeedback", "subtitle", e.target.value)}
           />
-        </label>
+        </div>
       </section>
 
       {/* Feedback Page */}
-      <section>
+      <section className="section">
         <h3>Feedback Page</h3>
-        <label>
-          Submit Button Text
+        <div className="form-group">
+          <label>Submit Button Text</label>
           <input
             type="text"
             value={config.feedbackPage.submitButtonText}
@@ -64,9 +65,9 @@ function ContentTab({ config, setConfig }) {
               handleChange("feedbackPage", "submitButtonText", e.target.value)
             }
           />
-        </label>
-        <label>
-          Additional Comment Toggle
+        </div>
+        <div className="form-group toggle">
+          <label>Additional Comment Toggle</label>
           <input
             type="checkbox"
             checked={config.feedbackPage.additionalCommentToggle}
@@ -74,9 +75,9 @@ function ContentTab({ config, setConfig }) {
               handleChange("feedbackPage", "additionalCommentToggle", e.target.checked)
             }
           />
-        </label>
-        <div>
-          <h4>Options</h4>
+        </div>
+        <div className="form-group">
+          <label>Options</label>
           {config.feedbackPage.options.map((option, index) => (
             <div key={index} className="option-row">
               <input
@@ -84,39 +85,40 @@ function ContentTab({ config, setConfig }) {
                 value={option}
                 onChange={(e) => handleOptionChange(index, e.target.value)}
               />
-              <button type="button" onClick={() => deleteOption(index)}>
-                Delete Option
+              <button className="delete-btn" type="button" onClick={() => deleteOption(index)}>
+                ×
               </button>
             </div>
           ))}
-          <button type="button" onClick={addOption}>
-            Add Option
+          <button className="add-btn" type="button" onClick={addOption}>
+            + Add Option
           </button>
         </div>
       </section>
 
       {/* Thank You Page */}
-      <section>
+      <section className="section">
         <h3>Thank You Page</h3>
-        <label>
-          Media Upload
+        <div className="form-group">
+          <label>Media Upload</label>
           <input
             type="file"
+            accept="image/*"
             onChange={(e) =>
               handleChange("thankYouPage", "media", e.target.files[0])
             }
           />
-        </label>
-        <label>
-          Title
+        </div>
+        <div className="form-group">
+          <label>Title</label>
           <input
             type="text"
             value={config.thankYouPage.title}
             onChange={(e) => handleChange("thankYouPage", "title", e.target.value)}
           />
-        </label>
-        <label>
-          Subtitle
+        </div>
+        <div className="form-group">
+          <label>Subtitle</label>
           <input
             type="text"
             value={config.thankYouPage.subtitle}
@@ -124,9 +126,9 @@ function ContentTab({ config, setConfig }) {
               handleChange("thankYouPage", "subtitle", e.target.value)
             }
           />
-        </label>
-        <label>
-          Button Text
+        </div>
+        <div className="form-group">
+          <label>Button Text</label>
           <input
             type="text"
             value={config.thankYouPage.buttonText}
@@ -134,7 +136,7 @@ function ContentTab({ config, setConfig }) {
               handleChange("thankYouPage", "buttonText", e.target.value)
             }
           />
-        </label>
+        </div>
       </section>
     </div>
   );
