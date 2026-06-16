@@ -9,14 +9,14 @@ function InitialScreen({ config, styling }) {
     <div className="preview-content">
       <div
         style={{
-          width: 56,
-          height: 56,
-          borderRadius: "50%",
-          background: `linear-gradient(135deg, ${styling.buttonColor}20, ${styling.buttonColor}10)`,
+          width: 52,
+          height: 52,
+          borderRadius: "14px",
+          background: styling.buttonColor + "15",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 24,
+          fontSize: 22,
           marginBottom: 4,
         }}
       >
@@ -55,11 +55,11 @@ function FeedbackScreen({ config, styling }) {
   return (
     <div
       className="preview-content"
-      style={{ justifyContent: "flex-start", padding: "36px 24px 24px", gap: "18px" }}
+      style={{ justifyContent: "flex-start", padding: "32px 22px 22px", gap: "16px" }}
     >
       <h3
         style={{
-          fontSize: "16px",
+          fontSize: "15px",
           fontWeight: 600,
           color: styling.titleColor,
           margin: 0,
@@ -70,32 +70,27 @@ function FeedbackScreen({ config, styling }) {
         Tell us more
       </h3>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px", width: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
         {config.feedbackPage.options.map((opt, i) => (
           <label
             key={i}
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "12px",
-              padding: "12px 16px",
-              border: `1.5px solid ${styling.unselectedRatingColor}`,
+              gap: "10px",
+              padding: "10px 14px",
+              border: `1px solid ${styling.unselectedRatingColor}`,
               borderRadius: styling.borderRadius,
               fontSize: "13px",
               color: styling.titleColor,
               cursor: "pointer",
-              transition: "all 0.2s ease",
               background: "#ffffff",
             }}
           >
             <input
               type="radio"
               name="feedback-option"
-              style={{
-                accentColor: styling.buttonColor,
-                width: 16,
-                height: 16,
-              }}
+              style={{ accentColor: styling.buttonColor, width: 15, height: 15 }}
             />
             {opt}
           </label>
@@ -103,7 +98,7 @@ function FeedbackScreen({ config, styling }) {
       </div>
 
       {config.feedbackPage.additionalCommentToggle && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px", width: "100%" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "5px", width: "100%" }}>
           <label
             style={{
               fontSize: "12px",
@@ -120,17 +115,16 @@ function FeedbackScreen({ config, styling }) {
             placeholder="Type here..."
             style={{
               width: "100%",
-              minHeight: "80px",
-              padding: "12px 14px",
+              minHeight: "72px",
+              padding: "10px 12px",
               fontSize: "13px",
               fontFamily: "inherit",
               color: styling.titleColor,
-              border: `1.5px solid ${styling.unselectedRatingColor}`,
+              border: `1px solid ${styling.unselectedRatingColor}`,
               borderRadius: styling.borderRadius,
               resize: "vertical",
               outline: "none",
               background: "#ffffff",
-              transition: "border-color 0.2s ease",
             }}
           />
         </div>
@@ -170,20 +164,20 @@ function ThankYouScreen({ config, styling }) {
     <div className="preview-content">
       <div
         style={{
-          width: 64,
-          height: 64,
+          width: 56,
+          height: 56,
           borderRadius: "50%",
-          background: "linear-gradient(135deg, #22c55e, #16a34a)",
+          background: "#ecfdf5",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 28,
-          color: "white",
-          boxShadow: "0 8px 20px rgba(34, 197, 94, 0.3)",
+          color: "#16a34a",
           marginBottom: 4,
         }}
       >
-        ✓
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
       </div>
       <h2
         style={{
@@ -222,10 +216,10 @@ function ThankYouScreen({ config, styling }) {
             alt="Uploaded media"
             style={{
               maxWidth: "100%",
-              maxHeight: "120px",
+              maxHeight: "110px",
               borderRadius: styling.borderRadius,
               objectFit: "contain",
-              border: "1px solid #e2e8f0",
+              border: "1px solid #e5e7eb",
             }}
           />
         </div>

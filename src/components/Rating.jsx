@@ -19,23 +19,17 @@ export default function Rating({ styling, onChange }) {
             key={i}
             onClick={() => handleSelect(i)}
             style={{
-              width: "52px",
-              height: "52px",
-              fontSize: "26px",
+              width: "48px",
+              height: "48px",
+              fontSize: "22px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              border: `2.5px solid ${isActive ? styling.selectedRatingColor : styling.unselectedRatingColor}`,
-              borderRadius: "16px",
-              background: isActive
-                ? `linear-gradient(135deg, ${styling.selectedRatingColor}20, ${styling.selectedRatingColor}10)`
-                : "#ffffff",
+              border: `2px solid ${isActive ? styling.selectedRatingColor : styling.unselectedRatingColor}`,
+              borderRadius: "12px",
+              background: isActive ? styling.selectedRatingColor + "12" : "#ffffff",
               cursor: "pointer",
-              transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-              transform: isActive ? "scale(1.12)" : "scale(1)",
-              boxShadow: isActive
-                ? `0 4px 12px ${styling.selectedRatingColor}30`
-                : "0 1px 3px rgba(0, 0, 0, 0.06)",
+              transition: "all 0.15s ease",
             }}
           >
             {emoji}

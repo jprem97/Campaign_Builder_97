@@ -1,0 +1,22 @@
+export default function Logo({ size = 36 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 36 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ flexShrink: 0 }}
+    >
+      <rect width="36" height="36" rx="8" fill="#4f46e5" />
+      <path
+        d="M11 15c0-.6.4-1 1-1h12c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1h-4l-3 3v-3h-1c-.6 0-1-.4-1-1V15z"
+        fill="white"
+        fillOpacity="0.95"
+      />
+      <circle cx="15" cy="18.5" r="1" fill="#4f46e5" />
+      <circle cx="18" cy="18.5" r="1" fill="#6366f1" />
+      <circle cx="21" cy="18.5" r="1" fill="#818cf8" />
+    </svg>
+  );
+}

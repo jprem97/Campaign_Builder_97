@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import defaultConfig from "./data/defaultConfig";
+import Home from "./components/Home";
+import Logo from "./components/Logo";
 import ContentTab from "./components/ContentTab";
 import StylingTab from "./components/StylingTab";
 import MobilePreview from "./components/MobilePreview";
@@ -7,15 +10,21 @@ import "./App.css";
 
 const tabs = ["Content", "Styling"];
 
-function App() {
+function Builder() {
   const [config, setConfig] = useState(defaultConfig);
   const [activeTab, setActiveTab] = useState("Content");
+  const navigate = useNavigate();
 
   return (
     <div className="app">
       <div className="left-panel">
         <div className="app-header">
-          <div className="logo">CSAT</div>
+          <div
+            className="header-brand"
+            onClick={() => navigate("/")}
+          >
+            <Logo size={34} />
+          </div>
           <div className="title-group">
             <h1>Campaign Builder</h1>
             <p>Configure your CSAT feedback popup</p>
@@ -46,6 +55,15 @@ function App() {
         <MobilePreview config={config} />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/builder" element={<Builder />} />
+    </Routes>
   );
 }
 
