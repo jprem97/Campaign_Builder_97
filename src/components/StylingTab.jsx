@@ -37,32 +37,16 @@ function StylingTab({ config, setConfig }) {
         {colorFields.map(({ label, key }) => (
           <div key={key} className="form-group toggle">
             <label>{label}</label>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div className="color-inputs">
               <input
                 type="color"
                 value={config.styling[key]}
                 onChange={(e) => handleChange(key, e.target.value)}
-                style={{
-                  width: "36px",
-                  height: "36px",
-                  border: "1px solid #d1d5db",
-                  borderRadius: "6px",
-                  cursor: "pointer",
-                  padding: 0,
-                }}
               />
               <input
                 type="text"
                 value={config.styling[key]}
                 onChange={(e) => handleChange(key, e.target.value)}
-                style={{
-                  width: "100px",
-                  padding: "6px 10px",
-                  fontSize: "13px",
-                  border: "1px solid #d1d5db",
-                  borderRadius: "6px",
-                  fontFamily: "monospace",
-                }}
               />
             </div>
           </div>
