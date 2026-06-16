@@ -14,6 +14,14 @@ function App() {
   return (
     <div className="app">
       <div className="left-panel">
+        <div className="app-header">
+          <div className="logo">CSAT</div>
+          <div className="title-group">
+            <h1>Campaign Builder</h1>
+            <p>Configure your CSAT feedback popup</p>
+          </div>
+        </div>
+
         <div className="tabs">
           {tabs.map((tab) => (
             <button
