@@ -204,6 +204,7 @@ function ThankYouScreen({ config, styling }) {
 
       {mediaUrl && (
         <div
+          className="thankyou-media-container"
           style={{
             marginTop: "6px",
             width: "100%",
@@ -214,9 +215,11 @@ function ThankYouScreen({ config, styling }) {
           <img
             src={mediaUrl}
             alt="Uploaded media"
+            className="thankyou-media"
             style={{
               maxWidth: "100%",
-              maxHeight: "100px",
+              maxHeight: "25%",
+              minHeight: "60px",
               borderRadius: styling.borderRadius,
               objectFit: "contain",
               border: "1px solid #e5e7eb",

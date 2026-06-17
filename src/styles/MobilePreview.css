@@ -121,11 +121,49 @@
   text-align: center;
 }
 
+/* ── Thank You Media ────────────────────────────── */
+
+.thankyou-media-container {
+  flex-shrink: 0;
+}
+
+.thankyou-media {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+
 @media (max-width: 900px) {
   .phone {
     width: 240px;
     height: 480px;
     border-radius: 26px;
     border-width: 4px;
+  }
+
+  .thankyou-media {
+    max-height: 22% !important;
+    min-height: 50px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone {
+    width: 220px;
+    height: 440px;
+    border-radius: 22px;
+    border-width: 3px;
+  }
+
+  .preview-content {
+    padding: 24px 16px;
+    gap: 10px;
+  }
+
+  .thankyou-media {
+    max-height: 20% !important;
+    min-height: 44px !important;
   }
 }
