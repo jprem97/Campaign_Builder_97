@@ -146,6 +146,46 @@ function FeedbackScreen({ config, styling }) {
   );
 }
 
+function ThankYouMedia({ styling }) {
+  return (
+    <svg
+      className="thankyou-media"
+      viewBox="0 0 200 140"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: "80%", maxWidth: "200px", height: "auto" }}
+    >
+      <rect x="10" y="10" width="180" height="120" rx="12" fill={styling.buttonColor + "10"} stroke={styling.buttonColor + "20"} strokeWidth="1" />
+
+      <circle cx="100" cy="55" r="28" fill={styling.buttonColor + "15"} />
+      <circle cx="100" cy="55" r="20" fill={styling.buttonColor + "25"} />
+      <path
+        d="M90 55l6 6 14-14"
+        stroke={styling.buttonColor}
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <circle cx="45" cy="30" r="4" fill={styling.buttonColor + "30"} />
+      <circle cx="155" cy="25" r="3" fill={styling.buttonColor + "25"} />
+      <circle cx="35" cy="90" r="3" fill={styling.buttonColor + "20"} />
+      <circle cx="165" cy="95" r="4" fill={styling.buttonColor + "25"} />
+      <circle cx="70" cy="115" r="2.5" fill={styling.buttonColor + "20"} />
+      <circle cx="130" cy="110" r="3" fill={styling.buttonColor + "25"} />
+
+      <path d="M50 20l3-6 3 6" stroke={styling.buttonColor + "40"} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M150 15l2.5-5 2.5 5" stroke={styling.buttonColor + "35"} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M160 110l3-5 3 5" stroke={styling.buttonColor + "35"} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M40 105l2.5-5 2.5 5" stroke={styling.buttonColor + "30"} strokeWidth="1.5" strokeLinecap="round" />
+
+      <text x="100" y="105" textAnchor="middle" fill={styling.subtitleColor} fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif">
+        Thank you!
+      </text>
+    </svg>
+  );
+}
+
 function ThankYouScreen({ config, styling }) {
   const [mediaUrl, setMediaUrl] = useState(null);
 
@@ -201,16 +241,16 @@ function ThankYouScreen({ config, styling }) {
         {config.thankYouPage.subtitle}
       </p>
 
-      {mediaUrl && (
-        <div
-          className="thankyou-media-container"
-          style={{
-            marginTop: "6px",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+      <div
+        className="thankyou-media-container"
+        style={{
+          marginTop: "6px",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {mediaUrl ? (
           <img
             src={mediaUrl}
             alt="Uploaded media"
@@ -223,8 +263,10 @@ function ThankYouScreen({ config, styling }) {
               border: "1px solid #e5e7eb",
             }}
           />
-        </div>
-      )}
+        ) : (
+          <ThankYouMedia styling={styling} />
+        )}
+      </div>
 
       <button
         className="preview-btn"
