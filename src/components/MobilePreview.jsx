@@ -66,6 +66,7 @@ function FeedbackScreen({ config, styling }) {
       style={{ justifyContent: "flex-start", padding: "28px 20px 20px", gap: "14px" }}
     >
       <h3
+        className="feedback-title-anim"
         style={{
           fontSize: "14px",
           fontWeight: 600,
@@ -82,6 +83,7 @@ function FeedbackScreen({ config, styling }) {
         {config.feedbackPage.options.map((opt, i) => (
           <label
             key={i}
+            className="feedback-option-anim"
             style={{
               display: "flex",
               alignItems: "center",
@@ -93,6 +95,7 @@ function FeedbackScreen({ config, styling }) {
               color: styling.titleColor,
               cursor: "pointer",
               background: "#ffffff",
+              animationDelay: `${i * 60}ms`,
             }}
           >
             <input
@@ -106,7 +109,10 @@ function FeedbackScreen({ config, styling }) {
       </div>
 
       {config.feedbackPage.additionalCommentToggle && (
-        <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "100%" }}>
+        <div
+          className="feedback-textarea-anim"
+          style={{ display: "flex", flexDirection: "column", gap: "4px", width: "100%" }}
+        >
           <label
             style={{
               fontSize: "11px",
@@ -139,7 +145,7 @@ function FeedbackScreen({ config, styling }) {
       )}
 
       <button
-        className="preview-btn"
+        className="preview-btn feedback-btn-anim"
         style={{
           width: styling.buttonWidth,
           height: styling.buttonHeight,

@@ -1,3 +1,50 @@
+/* ── Feedback Form Animations ────────────────────── */
+
+@keyframes feedbackFadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes feedbackBtnPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.04);
+  }
+}
+
+@keyframes feedbackTextGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.feedback-title-anim {
+  animation: feedbackFadeSlideIn 0.3s ease both;
+}
+
+.feedback-option-anim {
+  animation: feedbackFadeSlideIn 0.3s ease both;
+}
+
+.feedback-textarea-anim {
+  animation: feedbackFadeSlideIn 0.35s ease 0.25s both;
+}
+
+.feedback-btn-anim {
+  animation: feedbackFadeSlideIn 0.3s ease 0.35s both, feedbackBtnPulse 2.5s ease-in-out 0.8s 2;
+}
+
 /* ── Phone Container ─────────────────────────────── */
 
 .phone {
