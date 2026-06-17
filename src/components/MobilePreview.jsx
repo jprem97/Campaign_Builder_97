@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Rating from "./Rating";
 import "../styles/MobilePreview.css";
 
@@ -147,18 +147,17 @@ function FeedbackScreen({ config, styling }) {
 }
 
 function ThankYouScreen({ config, styling }) {
-  const mediaUrl = useMemo(() => {
-    if (config.thankYouPage.media) {
-      return URL.createObjectURL(config.thankYouPage.media);
-    }
-    return null;
-  }, [config.thankYouPage.media]);
+  const [mediaUrl, setMediaUrl] = useState(null);
 
   useEffect(() => {
-    return () => {
-      if (mediaUrl) URL.revokeObjectURL(mediaUrl);
-    };
-  }, [mediaUrl]);
+    if (config.thankYouPage.media) {
+      const url = URL.createObjectURL(config.thankYouPage.media);
+      setMediaUrl(url);
+      return () => URL.revokeObjectURL(url);
+    } else {
+      setMediaUrl(null);
+    }
+  }, [config.thankYouPage.media]);
 
   return (
     <div className="preview-content">
@@ -217,9 +216,8 @@ function ThankYouScreen({ config, styling }) {
             alt="Uploaded media"
             className="thankyou-media"
             style={{
-              maxWidth: "100%",
-              maxHeight: "25%",
-              minHeight: "60px",
+              maxWidth: "80%",
+              maxHeight: "120px",
               borderRadius: styling.borderRadius,
               objectFit: "contain",
               border: "1px solid #e5e7eb",

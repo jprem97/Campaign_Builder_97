@@ -144,8 +144,7 @@
   }
 
   .thankyou-media {
-    max-height: 22% !important;
-    min-height: 50px !important;
+    max-height: 100px;
   }
 }
 
@@ -163,7 +162,6 @@
   }
 
   .thankyou-media {
-    max-height: 20% !important;
-    min-height: 44px !important;
+    max-height: 80px;
   }
 }
