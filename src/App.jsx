@@ -75,10 +75,6 @@ function Builder() {
           </svg>
         )}
       </button>
-
-      <div className="right-panel">
-        <MobilePreview config={config} />
-      </div>
     </div>
   );
 }
