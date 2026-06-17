@@ -173,6 +173,18 @@ function ThankYouMedia({ styling }) {
       >
         We appreciate your feedback!
       </span>
+      <span
+        style={{
+          fontSize: "9px",
+          fontWeight: 400,
+          color: styling.subtitleColor,
+          opacity: 0.6,
+          fontFamily: "Inter, sans-serif",
+          lineHeight: 1.4,
+        }}
+      >
+        Customize with your own image, GIF, or Lottie animation
+      </span>
     </div>
   );
 }
