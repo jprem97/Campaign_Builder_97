@@ -34,9 +34,11 @@ export default function Rating({ styling, onChange, ratingType, ratingMedia }) {
           <button
             key={i}
             onClick={() => handleSelect(i)}
+            className="rating-btn"
             style={{
-              width: "42px",
-              height: "48px",
+              width: "100%",
+              maxWidth: "42px",
+              aspectRatio: "42 / 48",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -66,11 +68,11 @@ export default function Rating({ styling, onChange, ratingType, ratingMedia }) {
                 />
               )
             ) : (
-              <span style={{ lineHeight: 1, fontSize: "20px" }}>{emoji}</span>
+              <span className="rating-emoji" style={{ lineHeight: 1 }}>{emoji}</span>
             )}
             <span
+              className="rating-num"
               style={{
-                fontSize: "9px",
                 fontWeight: 600,
                 color: isActive ? styling.selectedRatingColor : "#1e293b",
                 lineHeight: 1,

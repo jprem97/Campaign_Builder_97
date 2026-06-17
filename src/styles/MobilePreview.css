@@ -100,6 +100,21 @@
   justify-content: center;
   align-items: center;
   padding: 8px 0;
+  width: 100%;
+  max-width: 250px;
+}
+
+.rating-btn {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.rating-emoji {
+  font-size: 20px;
+}
+
+.rating-num {
+  font-size: 9px;
 }
 
 /* ── Preview Buttons ─────────────────────────────── */
@@ -198,6 +213,19 @@
     border-width: 3px;
   }
 
+  .rating-row {
+    max-width: 220px;
+    gap: 6px;
+  }
+
+  .rating-emoji {
+    font-size: 18px;
+  }
+
+  .rating-num {
+    font-size: 8px;
+  }
+
   .thankyou-media {
     max-height: 100px;
   }
@@ -214,6 +242,19 @@
   .preview-content {
     padding: 24px 16px;
     gap: 10px;
+  }
+
+  .rating-row {
+    max-width: 190px;
+    gap: 5px;
+  }
+
+  .rating-emoji {
+    font-size: 16px;
+  }
+
+  .rating-num {
+    font-size: 7px;
   }
 
   .preview-nav {
