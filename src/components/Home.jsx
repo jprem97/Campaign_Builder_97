@@ -9,8 +9,8 @@ const features = [
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
-    title: "Live Mobile Preview",
-    desc: "See your CSAT popup update in real time as you configure every detail.",
+    title: "Instant Preview",
+    desc: "Watch your popup come to life on a mobile frame as you tweak every setting.",
   },
   {
     icon: (
@@ -19,8 +19,8 @@ const features = [
         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
       </svg>
     ),
-    title: "Fully Customizable",
-    desc: "Colors, fonts, borders, button dimensions — everything is configurable.",
+    title: "Pixel-Perfect Control",
+    desc: "Colors, fonts, borders, spacing — every detail is yours to command.",
   },
   {
     icon: (
@@ -30,8 +30,8 @@ const features = [
         <polyline points="21 15 16 10 5 21" />
       </svg>
     ),
-    title: "Custom Media",
-    desc: "Upload images, GIFs, or Lottie animations for ratings and thank you screens.",
+    title: "Rich Media Support",
+    desc: "Drop in images, GIFs, or Lottie animations to make your feedback pop.",
   },
   {
     icon: (
@@ -40,8 +40,8 @@ const features = [
         <line x1="4" y1="22" x2="4" y2="15" />
       </svg>
     ),
-    title: "Motionful Ratings",
-    desc: "Choose static emojis or upload custom animated ones per rating level.",
+    title: "Animated Ratings",
+    desc: "Swap static emojis for custom Lottie animations at every rating level.",
   },
   {
     icon: (
@@ -52,7 +52,7 @@ const features = [
       </svg>
     ),
     title: "Dark Mode",
-    desc: "Toggle between light and dark themes for comfortable editing.",
+    desc: "Switch to a darker palette for comfortable late-night crafting sessions.",
   },
   {
     icon: (
@@ -64,7 +64,7 @@ const features = [
       </svg>
     ),
     title: "PDF Export",
-    desc: "Download all three screens as a PDF or view them in fullscreen mode.",
+    desc: "Download all three screens as a polished PDF or present them fullscreen.",
   },
 ];
 
@@ -81,17 +81,17 @@ export default function Home() {
       </nav>
 
       <main className="home-main">
-        <div className="hero-badge">CSAT Campaign Builder</div>
+        <div className="hero-badge">Feedback Studio</div>
 
         <h1 className="hero-title">
-          Build Beautiful
+          Design Feedback
           <br />
-          <span>Feedback Experiences</span>
+          <span>That People Love</span>
         </h1>
 
         <p className="hero-subtitle">
-          Configure a polished CSAT popup in minutes. Customize content, styling,
-          and animations — then preview everything live on a mobile frame.
+          Craft stunning CSAT popups with animated ratings, custom media, and
+          pixel-perfect styling — all previewed live on a real mobile frame.
         </p>
 
         <div className="hero-actions">
@@ -136,7 +136,7 @@ export default function Home() {
             <Logo size={22} />
             <span>Campaign Builder</span>
           </div>
-          <p>Built with React + Vite</p>
+          <p>Crafted with React + Vite</p>
         </div>
       </footer>
     </div>
