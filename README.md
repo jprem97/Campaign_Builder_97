@@ -1,16 +1,86 @@
-# React + Vite
+# Campaign Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simplified CSAT Campaign Builder that allows users to configure a feedback popup and preview it in real time on a mobile device. Users can customize content and styling through a tabbed editor panel while seeing instant updates in a live mobile preview.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework:** React 19
+- **Build Tool:** Vite
+- **Routing:** React Router DOM
+- **Styling:** CSS (custom properties, responsive media queries)
+- **PDF Generation:** jsPDF + html2canvas
+- **Lottie Animations:** @lottiefiles/dotlottie-react
+- **Deployment:** Vercel / Netlify
 
-## React Compiler
+## Folder Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+Campaign_Builder/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── ContentTab.jsx      # Content configuration panel
+│   │   ├── Home.jsx            # Landing page
+│   │   ├── Logo.jsx            # SVG logo component
+│   │   ├── MobilePreview.jsx   # Live mobile preview with fullscreen mode
+│   │   ├── Rating.jsx          # Emoji rating widget (1–5)
+│   │   └── StylingTab.jsx      # Styling configuration panel
+│   ├── data/
+│   │   └── defaultConfig.js    # Default state for all screens + styling
+│   ├── styles/
+│   │   ├── ContentTab.css
+│   │   ├── Home.css
+│   │   ├── MobilePreview.css
+│   │   └── StylingTab.css
+│   ├── App.css                 # Global layout and form styles
+│   ├── App.jsx                 # Root component with routing
+│   ├── index.css               # CSS reset
+│   └── main.jsx                # Entry point
+├── package.json
+├── vite.config.js
+└── README.md
+```
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Install & Run
+
+```bash
+# Clone the repository
+git clone https://github.com/jprem97/Campaign_Builder_97.git
+cd Campaign_Builder_97
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+Output will be in the `dist/` directory.
+
+## Features
+
+- **Content Tab** — Configure title, subtitle, rating options, media upload, and button text for all three screens (Initial Feedback, Feedback Form, Thank You)
+- **Styling Tab** — Customize colors, font size/weight, border radius, button dimensions, and rating colors
+- **Live Mobile Preview** — Real-time preview on the right side of the screen, updates instantly on every change
+- **Fullscreen Mode** — View the mobile preview in fullscreen with keyboard navigation
+- **PDF Download** — Export all three screens as a multi-page PDF from fullscreen mode
+- **Responsive Design** — Adapts to desktop, tablet, and mobile screen sizes
+
+## Deployment Link
+
+[Live Demo](https://your-deployment-url.vercel.app)

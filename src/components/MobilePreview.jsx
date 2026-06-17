@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Rating from "./Rating";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -178,6 +179,7 @@ function ThankYouMedia({ styling }) {
 
 function ThankYouScreen({ config, styling }) {
   const [mediaUrl, setMediaUrl] = useState(null);
+  const isLottie = config.thankYouPage.media?.name?.endsWith(".json");
 
   useEffect(() => {
     if (config.thankYouPage.media) {
@@ -241,18 +243,31 @@ function ThankYouScreen({ config, styling }) {
         }}
       >
         {mediaUrl ? (
-          <img
-            src={mediaUrl}
-            alt="Uploaded media"
-            className="thankyou-media"
-            style={{
-              maxWidth: "80%",
-              maxHeight: "120px",
-              borderRadius: styling.borderRadius,
-              objectFit: "contain",
-              border: "1px solid #e5e7eb",
-            }}
-          />
+          isLottie ? (
+            <DotLottieReact
+              src={mediaUrl}
+              style={{
+                maxWidth: "80%",
+                maxHeight: "120px",
+                borderRadius: styling.borderRadius,
+              }}
+              autoplay
+              loop
+            />
+          ) : (
+            <img
+              src={mediaUrl}
+              alt="Uploaded media"
+              className="thankyou-media"
+              style={{
+                maxWidth: "80%",
+                maxHeight: "120px",
+                borderRadius: styling.borderRadius,
+                objectFit: "contain",
+                border: "1px solid #e5e7eb",
+              }}
+            />
+          )
         ) : (
           <ThankYouMedia styling={styling} />
         )}

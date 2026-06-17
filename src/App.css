@@ -422,3 +422,56 @@ body {
 .styling-tab .section h3 {
   color: #4f46e5;
 }
+
+/* ── Responsive ──────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .app {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .left-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 20px 24px;
+    max-height: none;
+  }
+
+  .right-panel {
+    width: 100%;
+    min-width: 0;
+    border-left: none;
+    padding: 24px 16px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .left-panel {
+    padding: 16px;
+  }
+
+  .right-panel {
+    padding: 20px 12px;
+  }
+
+  .app-header {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  .title-group h1 {
+    font-size: 15px;
+  }
+
+  .tabs {
+    margin-bottom: 16px;
+  }
+
+  .section {
+    padding: 16px;
+  }
+}
