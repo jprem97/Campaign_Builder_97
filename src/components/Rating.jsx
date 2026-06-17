@@ -72,7 +72,7 @@ export default function Rating({ styling, onChange, ratingType, ratingMedia }) {
               style={{
                 fontSize: "9px",
                 fontWeight: 600,
-                color: isActive ? styling.selectedRatingColor : styling.unselectedRatingColor,
+                color: isActive ? styling.selectedRatingColor : "#1e293b",
                 lineHeight: 1,
               }}
             >
