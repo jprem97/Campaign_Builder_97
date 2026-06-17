@@ -30,6 +30,12 @@ function ContentTab({ config, setConfig }) {
     handleChange("feedbackPage", "options", newOptions);
   };
 
+  const handleRatingMediaChange = (index, file) => {
+    const newMedia = [...config.initialFeedback.ratingMedia];
+    newMedia[index] = file;
+    handleChange("initialFeedback", "ratingMedia", newMedia);
+  };
+
   return (
     <div className="content-tab">
       {/* Initial Feedback */}
@@ -51,6 +57,46 @@ function ContentTab({ config, setConfig }) {
             onChange={(e) => handleChange("initialFeedback", "subtitle", e.target.value)}
           />
         </div>
+        <div className="form-group">
+          <label>Rating Style</label>
+          <div className="rating-type-row">
+            <label className="rating-type-option">
+              <input
+                type="radio"
+                name="ratingType"
+                value="motionless"
+                checked={config.initialFeedback.ratingType === "motionless"}
+                onChange={() => handleChange("initialFeedback", "ratingType", "motionless")}
+              />
+              <span>Motionless</span>
+            </label>
+            <label className="rating-type-option">
+              <input
+                type="radio"
+                name="ratingType"
+                value="motionful"
+                checked={config.initialFeedback.ratingType === "motionful"}
+                onChange={() => handleChange("initialFeedback", "ratingType", "motionful")}
+              />
+              <span>Motionful</span>
+            </label>
+          </div>
+        </div>
+        {config.initialFeedback.ratingType === "motionful" && (
+          <div className="form-group">
+            <label>Custom Rating Emojis (upload for each)</label>
+            {["😠", "😟", "😐", "🙂", "😄"].map((emoji, i) => (
+              <div key={i} className="rating-media-row">
+                <span className="rating-media-label">{emoji} Rating {i + 1}</span>
+                <input
+                  type="file"
+                  accept=".png,.jpg,.jpeg,.gif,.json"
+                  onChange={(e) => handleRatingMediaChange(i, e.target.files[0])}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Feedback Page */}

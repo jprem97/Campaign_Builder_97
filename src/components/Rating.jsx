@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const emojis = ["😠", "😟", "😐", "🙂", "😄"];
 
-export default function Rating({ styling, onChange }) {
+export default function Rating({ styling, onChange, ratingType, ratingMedia }) {
   const [selected, setSelected] = useState(null);
+  const prevUrlsRef = useRef([null, null, null, null, null]);
+
+  const mediaUrls = useMemo(() => {
+    if (ratingType !== "motionful" || !ratingMedia) return [null, null, null, null, null];
+    return ratingMedia.map((file) => (file ? URL.createObjectURL(file) : null));
+  }, [ratingType, ratingMedia]);
+
+  useEffect(() => {
+    const prev = prevUrlsRef.current;
+    prev.forEach((url) => { if (url) URL.revokeObjectURL(url); });
+    prevUrlsRef.current = mediaUrls;
+  }, [mediaUrls]);
 
   const handleSelect = (index) => {
     setSelected(index);
@@ -14,6 +27,9 @@ export default function Rating({ styling, onChange }) {
     <div className="rating-row">
       {emojis.map((emoji, i) => {
         const isActive = selected === i;
+        const isLottie = ratingType === "motionful" && ratingMedia?.[i]?.name?.endsWith(".json");
+        const hasMedia = ratingType === "motionful" && mediaUrls[i];
+
         return (
           <button
             key={i}
@@ -21,7 +37,6 @@ export default function Rating({ styling, onChange }) {
             style={{
               width: "42px",
               height: "48px",
-              fontSize: "20px",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -35,7 +50,24 @@ export default function Rating({ styling, onChange }) {
               padding: 0,
             }}
           >
-            <span style={{ lineHeight: 1 }}>{emoji}</span>
+            {hasMedia ? (
+              isLottie ? (
+                <DotLottieReact
+                  src={mediaUrls[i]}
+                  style={{ width: 22, height: 22 }}
+                  autoplay
+                  loop
+                />
+              ) : (
+                <img
+                  src={mediaUrls[i]}
+                  alt={`Rating ${i + 1}`}
+                  style={{ width: 22, height: 22, objectFit: "contain", borderRadius: 3 }}
+                />
+              )
+            ) : (
+              <span style={{ lineHeight: 1, fontSize: "20px" }}>{emoji}</span>
+            )}
             <span
               style={{
                 fontSize: "9px",

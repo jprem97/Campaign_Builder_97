@@ -2,6 +2,8 @@ const defaultConfig = {
   initialFeedback: {
     title: "We value your feedback!",
     subtitle: "Please take a moment to rate your experience.",
+    ratingType: "motionless",
+    ratingMedia: [null, null, null, null, null],
   },
   feedbackPage: {
     submitButtonText: "Submit Feedback",

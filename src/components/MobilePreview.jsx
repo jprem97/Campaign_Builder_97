@@ -48,7 +48,11 @@ function InitialScreen({ config, styling }) {
       >
         {config.initialFeedback.subtitle}
       </p>
-      <Rating styling={styling} />
+      <Rating
+        styling={styling}
+        ratingType={config.initialFeedback.ratingType}
+        ratingMedia={config.initialFeedback.ratingMedia}
+      />
     </div>
   );
 }
