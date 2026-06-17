@@ -158,7 +158,7 @@ function ThankYouMedia({ styling }) {
         marginTop: "6px",
       }}
     >
-      <span style={{ fontSize: "48px", lineHeight: 1 }}>🎉</span>
+      <span style={{ fontSize: "48px", lineHeight: 1 }}>🙏🏽</span>
       <span
         style={{
           fontSize: "11px",
