@@ -81,7 +81,7 @@ export default function Home() {
       </nav>
 
       <main className="home-main">
-        <div className="hero-badge">Feedback Studio</div>
+        <div className="hero-badge">Feedback Maker</div>
 
         <h1 className="hero-title">
           Design Feedback
