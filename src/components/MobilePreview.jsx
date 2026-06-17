@@ -148,41 +148,28 @@ function FeedbackScreen({ config, styling }) {
 
 function ThankYouMedia({ styling }) {
   return (
-    <svg
+    <div
       className="thankyou-media"
-      viewBox="0 0 200 140"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ width: "80%", maxWidth: "200px", height: "auto" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "6px",
+        marginTop: "6px",
+      }}
     >
-      <rect x="10" y="10" width="180" height="120" rx="12" fill={styling.buttonColor + "08"} stroke={styling.buttonColor + "18"} strokeWidth="1" />
-
-      <rect x="74" y="22" width="52" height="52" rx="12" fill={styling.buttonColor} />
-      <path
-        d="M82 40c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2h-3v2.5l-3-2.5h-6c-1.1 0-2-.9-2-2v-8z"
-        fill="white"
-        fillOpacity="0.95"
-      />
-      <circle cx="89" cy="44" r="1" fill={styling.buttonColor + "40"} />
-      <circle cx="93" cy="44" r="1" fill={styling.buttonColor + "55"} />
-      <circle cx="97" cy="44" r="1" fill={styling.buttonColor + "70"} />
-
-      <circle cx="45" cy="30" r="3" fill={styling.buttonColor + "25"} />
-      <circle cx="155" cy="28" r="2.5" fill={styling.buttonColor + "20"} />
-      <circle cx="38" cy="90" r="2.5" fill={styling.buttonColor + "18"} />
-      <circle cx="162" cy="92" r="3" fill={styling.buttonColor + "22"} />
-      <circle cx="65" cy="115" r="2" fill={styling.buttonColor + "18"} />
-      <circle cx="135" cy="112" r="2.5" fill={styling.buttonColor + "20"} />
-
-      <path d="M52 20l2.5-5 2.5 5" stroke={styling.buttonColor + "35"} strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M148 18l2-4 2 4" stroke={styling.buttonColor + "30"} strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M158 108l2.5-5 2.5 5" stroke={styling.buttonColor + "30"} strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M42 100l2-4 2 4" stroke={styling.buttonColor + "25"} strokeWidth="1.5" strokeLinecap="round" />
-
-      <text x="100" y="100" textAnchor="middle" fill={styling.subtitleColor} fontSize="11" fontWeight="600" fontFamily="Inter, sans-serif">
+      <span style={{ fontSize: "48px", lineHeight: 1 }}>🎉</span>
+      <span
+        style={{
+          fontSize: "11px",
+          fontWeight: 600,
+          color: styling.subtitleColor,
+          fontFamily: "Inter, sans-serif",
+        }}
+      >
         We appreciate your feedback!
-      </text>
-    </svg>
+      </span>
+    </div>
   );
 }
 
