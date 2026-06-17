@@ -176,9 +176,9 @@ function ThankYouMedia({ styling }) {
       <span
         style={{
           fontSize: "9px",
-          fontWeight: 400,
+          fontWeight: 600,
           color: styling.subtitleColor,
-          opacity: 0.6,
+          opacity: 0.8,
           fontFamily: "Inter, sans-serif",
           lineHeight: 1.4,
         }}
