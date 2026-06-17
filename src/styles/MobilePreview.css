@@ -216,6 +216,31 @@
     gap: 10px;
   }
 
+  .preview-nav {
+    padding: 8px 10px;
+    margin-top: 10px;
+  }
+
+  .preview-nav button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .preview-nav span {
+    font-size: 11px;
+  }
+
+  .preview-bottom-actions {
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  .fullscreen-btn {
+    padding: 8px 0;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
   .thankyou-media {
     max-height: 80px;
   }
