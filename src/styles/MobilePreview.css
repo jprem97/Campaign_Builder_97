@@ -166,6 +166,41 @@
   }
 }
 
+/* ── Dark Mode ──────────────────────────────────── */
+
+.dark .preview-nav {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.dark .preview-nav button {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.dark .preview-nav button:hover:not(:disabled) {
+  background: #475569;
+}
+
+.dark .preview-nav span {
+  color: #64748b;
+}
+
+.dark .screen-label {
+  color: #64748b;
+}
+
+.dark .preview-bottom-actions .fullscreen-btn {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+.dark .preview-bottom-actions .fullscreen-btn:hover:not(:disabled) {
+  background: #334155;
+  border-color: #475569;
+}
+
 /* ── Full Screen Button ───────────────────────────── */
 
 .preview-bottom-actions {
