@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createRoot } from "react-dom/client";
 import Rating from "./Rating";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import "../styles/MobilePreview.css";
 
 const screenNames = ["Initial Feedback", "Feedback Form", "Thank You"];
@@ -274,10 +277,141 @@ function ThankYouScreen({ config, styling }) {
 
 const screens = [InitialScreen, FeedbackScreen, ThankYouScreen];
 
-export default function MobilePreview({ config }) {
+async function generatePDF(config) {
+  const { styling } = config;
+  const pdf = new jsPDF({ orientation: "portrait", unit: "px", format: [280, 560] });
+  const canvasContainer = document.createElement("div");
+  canvasContainer.style.position = "absolute";
+  canvasContainer.style.left = "-9999px";
+  canvasContainer.style.top = "0";
+  document.body.appendChild(canvasContainer);
+
+  for (let i = 0; i < 3; i++) {
+    const tempDiv = document.createElement("div");
+    tempDiv.style.width = "280px";
+    tempDiv.style.height = "560px";
+    tempDiv.style.borderRadius = "32px";
+    tempDiv.style.overflow = "hidden";
+    tempDiv.style.background = styling.backgroundColor;
+    tempDiv.style.display = "flex";
+    tempDiv.style.flexDirection = "column";
+    canvasContainer.appendChild(tempDiv);
+
+    const screenDiv = document.createElement("div");
+    screenDiv.style.flex = "1";
+    screenDiv.style.display = "flex";
+    screenDiv.style.flexDirection = "column";
+    screenDiv.style.overflow = "hidden";
+    tempDiv.appendChild(screenDiv);
+
+    const root = createRoot(screenDiv);
+    const ScreenComp = screens[i];
+    root.render(<ScreenComp config={config} styling={styling} />);
+
+    await new Promise((r) => setTimeout(r, 500));
+
+    const canvas = await html2canvas(tempDiv, {
+      width: 280,
+      height: 560,
+      useCORS: true,
+      scale: 2,
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    if (i > 0) pdf.addPage([280, 560], "portrait");
+    pdf.addImage(imgData, "PNG", 0, 0, 280, 560);
+
+    root.unmount();
+    canvasContainer.removeChild(tempDiv);
+  }
+
+  document.body.removeChild(canvasContainer);
+  pdf.save("mobile-preview.pdf");
+}
+
+function FullscreenModal({ config, onClose }) {
   const [current, setCurrent] = useState(0);
+  const [generating, setGenerating] = useState(false);
+  const phoneRef = useRef(null);
   const { styling } = config;
   const Screen = screens[current];
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight" && current < 2) setCurrent((p) => p + 1);
+      if (e.key === "ArrowLeft" && current > 0) setCurrent((p) => p - 1);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [current, onClose]);
+
+  const handlePDF = async () => {
+    setGenerating(true);
+    await generatePDF(config);
+    setGenerating(false);
+  };
+
+  return (
+    <div className="fullscreen-overlay" onClick={onClose}>
+      <div className="fullscreen-container" onClick={(e) => e.stopPropagation()}>
+        <div className="fullscreen-header">
+          <span className="fullscreen-title">{screenNames[current]}</span>
+          <span className="fullscreen-counter">{current + 1} / 3</span>
+          <div className="fullscreen-actions">
+            <button
+              className="fullscreen-pdf-btn"
+              onClick={handlePDF}
+              disabled={generating}
+            >
+              {generating ? "Generating..." : "Download PDF"}
+            </button>
+            <button className="fullscreen-close-btn" onClick={onClose}>
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <div className="fullscreen-preview-area">
+          <button
+            className="fullscreen-nav-btn fullscreen-nav-left"
+            disabled={current === 0}
+            onClick={() => setCurrent((p) => p - 1)}
+          >
+            ‹
+          </button>
+
+          <div className="fullscreen-phone" ref={phoneRef} style={{ background: styling.backgroundColor }}>
+            <div className="fullscreen-phone-screen">
+              <Screen config={config} styling={styling} />
+            </div>
+          </div>
+
+          <button
+            className="fullscreen-nav-btn fullscreen-nav-right"
+            disabled={current === 2}
+            onClick={() => setCurrent((p) => p + 1)}
+          >
+            ›
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function MobilePreview({ config }) {
+  const [current, setCurrent] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [generating, setGenerating] = useState(false);
+  const { styling } = config;
+  const Screen = screens[current];
+
+  const handlePDF = async () => {
+    setGenerating(true);
+    await generatePDF(config);
+    setGenerating(false);
+  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
@@ -297,6 +431,31 @@ export default function MobilePreview({ config }) {
           Next →
         </button>
       </div>
+
+      <div className="preview-bottom-actions">
+        <button className="fullscreen-btn" onClick={() => setIsFullscreen(true)}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 3 21 3 21 9" />
+            <polyline points="9 21 3 21 3 15" />
+            <line x1="21" y1="3" x2="14" y2="10" />
+            <line x1="3" y1="21" x2="10" y2="14" />
+          </svg>
+          Full Screen
+        </button>
+        <button className="fullscreen-btn" onClick={handlePDF} disabled={generating}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="18" x2="12" y2="12" />
+            <polyline points="9 15 12 12 15 15" />
+          </svg>
+          {generating ? "Generating..." : "Download PDF"}
+        </button>
+      </div>
+
+      {isFullscreen && (
+        <FullscreenModal config={config} onClose={() => setIsFullscreen(false)} />
+      )}
     </div>
   );
 }

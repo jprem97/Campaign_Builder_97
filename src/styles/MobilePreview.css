@@ -165,3 +165,236 @@
     max-height: 80px;
   }
 }
+
+/* ── Full Screen Button ───────────────────────────── */
+
+.preview-bottom-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.fullscreen-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 0;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.fullscreen-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.fullscreen-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Fullscreen Overlay ───────────────────────────── */
+
+.fullscreen-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fullscreen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+/* ── Fullscreen Header ────────────────────────────── */
+
+.fullscreen-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 4px;
+  gap: 12px;
+}
+
+.fullscreen-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fullscreen-counter {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.fullscreen-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fullscreen-pdf-btn {
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+
+.fullscreen-pdf-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.fullscreen-pdf-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fullscreen-close-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.fullscreen-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Fullscreen Preview Area ──────────────────────── */
+
+.fullscreen-preview-area {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fullscreen-phone {
+  width: 280px;
+  height: 560px;
+  border-radius: 32px;
+  border: 5px solid #1e293b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.fullscreen-phone-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.fullscreen-phone-screen::-webkit-scrollbar {
+  width: 0;
+}
+
+/* ── Fullscreen Navigation Arrows ─────────────────── */
+
+.fullscreen-nav-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  flex-shrink: 0;
+}
+
+.fullscreen-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.fullscreen-nav-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.fullscreen-nav-left {
+  margin-right: -4px;
+}
+
+.fullscreen-nav-right {
+  margin-left: -4px;
+}
+
+/* ── Fullscreen Responsive ────────────────────────── */
+
+@media (max-width: 480px) {
+  .fullscreen-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .fullscreen-phone {
+    width: 240px;
+    height: 480px;
+    border-radius: 26px;
+    border-width: 4px;
+  }
+
+  .fullscreen-nav-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  .fullscreen-preview-area {
+    gap: 12px;
+  }
+}
