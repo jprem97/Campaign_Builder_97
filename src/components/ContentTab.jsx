@@ -84,7 +84,7 @@ function ContentTab({ config, setConfig }) {
         </div>
         {config.initialFeedback.ratingType === "motionful" && (
           <div className="form-group">
-            <label>Custom Rating Emojis (upload for each)</label>
+            <label>Custom Rating Emojis (use gifs)</label>
             {["😠", "😟", "😐", "🙂", "😄"].map((emoji, i) => (
               <div key={i} className="rating-media-row">
                 <span className="rating-media-label">{emoji} Rating {i + 1}</span>
